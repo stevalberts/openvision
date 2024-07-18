@@ -1,0 +1,7 @@
+# From ultraltics settings.yaml datasets_dir
+train: coins/images/train
+val: coins/images/valid
+test: coins/images/test
+
+nc: 3  # number of classes (e.g., 3 for coins classes)
+names: ['5 ksh','10 ksh','20 ksh']  # class names
