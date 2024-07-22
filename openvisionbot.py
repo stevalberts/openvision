@@ -3,8 +3,6 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, CallbackContext
 
 
-
-
 import os
 from dotenv import load_dotenv
 from build_models import process_image, fig2img, count_coins
