@@ -8,6 +8,7 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 import os
 from dotenv import load_dotenv
 from build_models import process_image, fig2img, count_coins
+from AIBot import *
 
 #Load keys 
 load_dotenv()
@@ -34,7 +35,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/help - How to run the bot\n"
         "/start - How to start the bot\n"
         "/about - More information about the bot\n"
-        "/predict - For detecting the coins and counting the value"
+        "/predict - For dei how are you?tecting the coins and counting the value"
     )
 
 # /Predict command
@@ -47,11 +48,11 @@ async def about_command(update:Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 
-def handle_responses(text:str) ->str:
-    processed:str = text.lower()
+# def handle_responses(text:str) ->str:
+#     processed:str = text.lower()
 
-    if "hello" in processed:
-        return "Hi there"
+#     if "hello" in processed:
+#         return "Hi there"
 
 
 
@@ -113,12 +114,12 @@ async def handle_message(update:Update, context: ContextTypes.DEFAULT_TYPE):
     if message_type== "group":
         if Bot_username in text:
             new_text:str= text.replace(Bot_username,"").strip()
-            response: str=handle_responses(new_text)
+            response: str=get_ansewr(new_text) #handle_responses(new_text)
         else:
             return
         
     else:
-        response:str= handle_responses(text)
+        response:str= get_ansewr(text)
     
     print("Bot:", response)
     await update.message.reply_text(response)
